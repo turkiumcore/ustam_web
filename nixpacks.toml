@@ -7,7 +7,7 @@ cmds = [
     "chmod -R 777 bootstrap/cache storage/logs",
     "touch bootstrap/cache/packages.php",
     "touch bootstrap/cache/services.php",
-    "composer install --no-dev --optimize-autoloader --no-interaction",
+    "export APP_ENV=local && composer install --optimize-autoloader --no-interaction",
     "npm install",
     "npm run build"
 ]
