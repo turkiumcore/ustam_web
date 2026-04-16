@@ -12,8 +12,9 @@ cmds = [
 
 [phases.build]
 cmds = [
-    "echo 'Build phase complete'"
+    "mkdir -p bootstrap/cache storage/logs",
+    "chmod -R 777 bootstrap/cache storage/logs"
 ]
 
 [start]
-cmd = "php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "mkdir -p bootstrap/cache storage/logs && chmod -R 777 bootstrap/cache storage/logs && php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
