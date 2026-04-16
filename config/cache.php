@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    'default' => env('APP_ENV') === 'production' ? 'array' : env('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
