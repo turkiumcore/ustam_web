@@ -3,6 +3,7 @@ nixPkgs = ["php83", "php83Extensions.pdo", "php83Extensions.pdo_mysql", "php83Ex
 
 [phases.install]
 cmds = [
+    "mkdir -p bootstrap/cache",
     "composer install --no-dev --optimize-autoloader --no-interaction",
     "npm install",
     "npm run build"
