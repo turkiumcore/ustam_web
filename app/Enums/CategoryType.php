@@ -4,7 +4,6 @@ namespace App\Enums;
 
 enum CategoryType: string
 {
-    const SERVICE = 'service';
-
-    const BLOG = 'blog';
+    case SERVICE = 'service';
+    case BLOG = 'blog';
 }
