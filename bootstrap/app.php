@@ -15,7 +15,19 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
-$app = ini_app(dirname(__DIR__));
+// Helper function to initialize the app
+if (!function_exists('ini_app')) {
+    function ini_app($basePath) {
+        return new Illuminate\Foundation\Application($basePath);
+    }
+}
+
+// Helper function to return singleton
+if (!function_exists('singleton')) {
+    function singleton($app) {
+        return $app;
+    }
+}
 
 /*
 |--------------------------------------------------------------------------
