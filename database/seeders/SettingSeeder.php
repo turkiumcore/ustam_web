@@ -114,6 +114,9 @@ class SettingSeeder extends Seeder
             ]
         ];
 
-        Setting::updateOrCreate(['values' => $values]);
+        Setting::updateOrCreate(
+            ['id' => 1],
+            ['values' => $values]
+        );
     }
 }

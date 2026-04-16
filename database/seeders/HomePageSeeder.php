@@ -145,7 +145,7 @@ class HomePageSeeder extends Seeder
         ];
 
         if (!HomePage::where('slug', $homePage['slug'])?->first()) {
-            HomePage::updateOrCreate([
+            HomePage::create([
                 'content' =>  $homePage['content'],
                 'status' =>  $homePage['status'],
                 'slug' => $homePage['slug'],

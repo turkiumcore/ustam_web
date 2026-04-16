@@ -20,7 +20,12 @@ class ThemeOptionSeeder extends Seeder
     public function run(): void
     {
         $options = $this->getThemeOptions();
-        ThemeOption::updateOrCreate(['options' => $options]);
+        
+        // Delete existing theme options to ensure fresh data
+        ThemeOption::truncate();
+        
+        // Create new theme option with all settings
+        ThemeOption::create(['options' => $options]);
     }
 
     public function getThemeOptions()
