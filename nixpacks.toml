@@ -20,4 +20,4 @@ cmds = [
 ]
 
 [start]
-cmd = "bash -c 'mkdir -p bootstrap/cache storage/framework/cache/data storage/framework/views storage/logs storage/app && chmod -R 777 bootstrap/cache storage/framework storage/logs storage/app && export APP_ENV=production CACHE_DRIVER=array APP_ID=ustam-app APP_KEY=base64:gMxFHKGygB1jW74kQ517Rvw4j4fjpZBsjoI/HaYdd/8= && php artisan migrate --force && php artisan db:seed --force && php -S 0.0.0.0:${PORT:-8000} -t public'"
+cmd = "bash -c 'mkdir -p bootstrap/cache storage/framework/cache/data storage/framework/views storage/logs storage/app && chmod -R 777 bootstrap/cache storage/framework storage/logs storage/app && export APP_ENV=production CACHE_DRIVER=array APP_ID=ustam-app APP_KEY=base64:gMxFHKGygB1jW74kQ517Rvw4j4fjpZBsjoI/HaYdd/8= && php artisan migrate --force && php artisan db:seed --force && echo \"{\\\"application_installation\\\": \\\"Completed\\\"}\" > storage/app/installation.json && echo \"{\\\"application_migration\\\": \\\"true\\\"}\" > storage/app/.migration && php -S 0.0.0.0:${PORT:-8000} -t public'"
