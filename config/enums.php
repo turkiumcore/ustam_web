@@ -1,6 +1,20 @@
 <?php
 
 return [
+    'seeders' => [
+        'ThemeOptionSeeder',
+        'CountriesSeeder',
+        'StateSeeder',
+        'CurrencySeeder',
+        'RoleSeeder',
+        'LanguageSeeder',
+        'TimeZoneSeeder',
+        'BookingStatusSeeder',
+        'SystemLangSeeder',
+        'SettingSeeder',
+        'HomePageSeeder',
+        'CustomSmsGatewaySettingSeeder',
+    ],
     'roles' => [
         'admin' => 'admin',
         'user' => 'user',

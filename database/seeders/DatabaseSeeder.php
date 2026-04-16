@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             SystemLangSeeder::class,
             SettingSeeder::class,
             HomePageSeeder::class,
-            CustomSmsGatewaySettingSeeder::class
+            CustomSmsGatewaySettingSeeder::class,
+            SeedersSeeder::class,
         ]);
     }
 }
