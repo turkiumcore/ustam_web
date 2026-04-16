@@ -13,7 +13,8 @@ cmds = [
 [phases.build]
 cmds = [
     "mkdir -p bootstrap/cache storage/framework/cache/data storage/logs",
-    "chmod -R 777 bootstrap/cache storage/framework storage/logs"
+    "chmod -R 777 bootstrap/cache storage/framework storage/logs",
+    "php artisan key:generate --force"
 ]
 
 [start]
