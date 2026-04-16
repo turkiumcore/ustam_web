@@ -50,7 +50,8 @@ return [
         ],
 
         'file' => [
-            'driver' => 'array',
+            'driver' => 'file',
+            'path' => env('CACHE_PATH', 'bootstrap/cache'),
         ],
 
         'memcached' => [
