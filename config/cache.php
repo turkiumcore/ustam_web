@@ -51,7 +51,7 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'path' => bootstrap_path('cache'),
+            'path' => base_path('bootstrap/cache'),
         ],
 
         'memcached' => [
