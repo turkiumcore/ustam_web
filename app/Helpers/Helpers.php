@@ -495,22 +495,19 @@ class Helpers
 
     public static function installation()
     {
-        if (! self::isCommandLineInstalled()) {
-            if (self::migration()) {
-                if (Storage::disk('local')->exists(config('config.installation'))) {
-                    $install = json_decode(Storage::get(config('config.installation')));
-                    if ($install->application_installation === 'Completed') {
-                        return true;
-                    }
-
-                    return true;
-                }
+        // Check if installation files exist
+        if (Storage::disk('local')->exists(config('config.installation')) && 
+            Storage::disk('local')->exists(config('config.migration'))) {
+            $install = json_decode(Storage::get(config('config.installation')));
+            $migration = json_decode(Storage::get(config('config.migration')));
+            
+            if ($install->application_installation === 'Completed' && 
+                $migration->application_migration === 'true') {
+                return true;
             }
-
-            return false;
         }
 
-        return true;
+        return false;
     }
 
     public static function migration()
