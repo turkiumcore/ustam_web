@@ -5,7 +5,7 @@ nixPkgs = ["php83", "php83Extensions.pdo", "php83Extensions.pdo_mysql", "php83Ex
 cmds = [
     "mkdir -p bootstrap/cache storage/framework/cache/data storage/logs",
     "chmod -R 777 bootstrap/cache storage/framework storage/logs",
-    "export APP_ENV=production && composer install --no-dev --optimize-autoloader --no-interaction",
+    "export APP_ENV=production CACHE_DRIVER=array && composer install --no-dev --optimize-autoloader --no-interaction",
     "npm install",
     "npm run build"
 ]
@@ -14,8 +14,9 @@ cmds = [
 cmds = [
     "mkdir -p bootstrap/cache storage/framework/cache/data storage/logs",
     "chmod -R 777 bootstrap/cache storage/framework storage/logs",
-    "test -f .env || cp .env.example .env"
+    "test -f .env || cp .env.example .env",
+    "export APP_ENV=production CACHE_DRIVER=array && php artisan key:generate --force"
 ]
 
 [start]
-cmd = "bash -c 'mkdir -p bootstrap/cache storage/framework/cache/data storage/logs && chmod -R 777 bootstrap/cache storage/framework storage/logs && php artisan key:generate --force && php artisan migrate --force && php -S 0.0.0.0:${PORT:-8000} -t public'"
+cmd = "bash -c 'mkdir -p bootstrap/cache storage/framework/cache/data storage/logs && chmod -R 777 bootstrap/cache storage/framework storage/logs && php artisan migrate --force && php -S 0.0.0.0:${PORT:-8000} -t public'"
