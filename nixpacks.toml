@@ -5,8 +5,6 @@ nixPkgs = ["php83", "php83Extensions.pdo", "php83Extensions.pdo_mysql", "php83Ex
 cmds = [
     "mkdir -p bootstrap/cache storage/logs",
     "chmod -R 777 bootstrap/cache storage/logs",
-    "touch bootstrap/cache/packages.php",
-    "touch bootstrap/cache/services.php",
     "export APP_ENV=production && composer install --no-dev --optimize-autoloader --no-interaction",
     "npm install",
     "npm run build"
