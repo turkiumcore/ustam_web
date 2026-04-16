@@ -32,14 +32,17 @@ class CustomSmsGatewaySettingSeeder extends Seeder
             ]
         ];
 
-        CustomSmsGateway::updateOrCreate([
-            'base_url' => $values['base_url'],
-            'method' => $values['method'],
-            'is_config' => $values['is_config'],
-            'sid' => $values['sid'],
-            'auth_token' => $values['auth_token'],
-            'from' => $values['from'],
-            'body' => $values['body']
-        ]);
+        CustomSmsGateway::updateOrCreate(
+            ['id' => 1],
+            [
+                'base_url' => $values['base_url'],
+                'method' => $values['method'],
+                'is_config' => $values['is_config'],
+                'sid' => $values['sid'],
+                'auth_token' => $values['auth_token'],
+                'from' => $values['from'],
+                'body' => $values['body']
+            ]
+        );
     }
 }
