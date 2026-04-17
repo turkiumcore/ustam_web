@@ -53,16 +53,18 @@ class ExceptionHandler extends Exception
     /**
      * Handle API response.
      *
-     * @param  \Exception  $exception
+     * @param  string  $message
+     * @param  int  $statusCode
      * @return \Illuminate\Http\JsonResponse
      */
     public function apiResponse($message, $statusCode)
     {
         $statusCode = $statusCode ?? 500;
-        $statusCode = (is_int($statusCode) && ($statusCode > 0 && $statusCode<=500)) ?$statusCode : Response::HTTP_INTERNAL_SERVER_ERROR;
-        throw new HttpResponseException(response()->json([
+        $statusCode = (is_int($statusCode) && ($statusCode > 0 && $statusCode <= 500)) ? $statusCode : Response::HTTP_INTERNAL_SERVER_ERROR;
+        
+        return response()->json([
             "message" => $message,
             "success" => false
-        ], $statusCode));
+        ], $statusCode);
     }
 }
