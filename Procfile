@@ -1,1 +1,1 @@
-web: mkdir -p bootstrap/cache storage/framework/cache/data storage/logs && chmod -R 777 bootstrap/cache storage/framework storage/logs && php artisan key:generate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan migrate --force && php -S 0.0.0.0:${PORT:-8000} -t public
+web: php -S 0.0.0.0:${PORT:-8080} -t public
